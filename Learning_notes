@@ -1,0 +1,69 @@
+# Learning Notes – Serial Number Scrapper
+
+---
+
+## 1. Regular Expressions (Regex)
+- Learned how to write patterns for matching serial number formats.
+- Key regex components used:
+  - `\D` → Non-digit character.
+  - `\d` → Digit.
+  - `{n}` → Exact length match.
+- Learned difference between:
+  - `re.match()` → Checks only at the start of a string.
+  - `re.search()` → Finds a match anywhere in the string.
+
+---
+
+## 2. File Handling in Python
+- Used `os.walk()` to iterate through all files in a directory.
+- Built file paths using:
+  ```python
+  f'{root}/{f}'
+  ```
+- Opened and read file contents using:
+  ```python
+  with open(filename, 'r') as file:
+      text = file.read()
+  ```
+
+---
+
+## 3. Pandas for Results Storage
+- Created an empty DataFrame:
+  ```python
+  pd.DataFrame(columns=["FILE:", "Serial NO."])
+  ```
+- Appended results dynamically:
+  ```python
+  result.loc[len(result)] = res
+  ```
+
+---
+
+## 4. Time Measurement
+- Used `datetime.datetime.now()` to record start and end time.
+- Calculated total execution time with:
+  ```python
+  total_time = endtime - startTime
+  ```
+
+---
+
+## 5. Debugging & Fixes
+- Initially used `^` at the start of regex, which caused matches to fail unless the pattern was at the start of the file.
+- Removed `^` to allow matches anywhere in the file.
+- Switched from `re.match()` to `re.search()` to capture patterns in any position.
+
+---
+
+## 🌟 Reflection
+This project helped me improve my skills in:
+- Crafting regex patterns.
+- Navigating and reading multiple files.
+- Storing structured results with Pandas.
+- Measuring execution time in Python.
+
+**Next steps:**
+- Add safe regex input from the user.
+- Handle non-text files gracefully.
+- Export matched results to CSV or Excel.
